@@ -4,7 +4,7 @@ layout: home
 nav_order: 1
 ---
 
-# Documentazione Agile
+# AGILE
 
 Benvenuto nella documentazione del progetto Agile.
 
