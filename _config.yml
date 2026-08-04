@@ -1,0 +1,13 @@
+title: Agile Documentation
+description: Documentazione del progetto Agile
+
+remote_theme: just-the-docs/just-the-docs@v0.12.0
+
+plugins:
+  - jekyll-remote-theme
+
+search_enabled: true
+
+aux_links:
+  "Repository GitHub":
+    - "https://github.com/xph4nje/xph4nje.github.io"
