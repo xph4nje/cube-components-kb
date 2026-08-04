@@ -1,0 +1,66 @@
+:root {
+  --agile-accent: #e10098;
+  --agile-accent-hover: #b8007d;
+  --agile-accent-soft: rgba(225, 0, 152, 0.10);
+  --agile-accent-focus: rgba(225, 0, 152, 0.24);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* Link */
+a:not(.btn) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:not(.btn):hover {
+  color: var(--agile-accent-hover);
+}
+
+/* Pulsante principale */
+.btn-primary {
+  background-color: var(--agile-accent);
+  border-color: var(--agile-accent);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--agile-accent-hover);
+  border-color: var(--agile-accent-hover);
+  color: #fff;
+}
+
+/* Voce attiva nella navigazione */
+.nav-list .nav-list-item .nav-list-link.active {
+  color: var(--agile-accent);
+  font-weight: 700;
+}
+
+/* Focus della ricerca e dei controlli */
+.search-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--agile-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--agile-accent-focus);
+}
+
+/* Evidenziazione del testo */
+::selection {
+  background: var(--agile-accent-soft);
+}
+
+/* Piccolo elemento distintivo nella sidebar */
+.site-header {
+  border-bottom: 3px solid var(--agile-accent);
+}
