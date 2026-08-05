@@ -1,0 +1,68 @@
+.base-booking-button {
+    display: inline-block;
+    padding: [Padding|0px];
+    background: [Background|var(--dark)];
+    border: none;
+    cursor: pointer;
+    
+    [Border]
+    [Testo]
+    
+    transition: all 0.5s;
+    
+    i, svg {
+        margin-right: 0.5rem;    
+    }
+    
+    &:not(.no-state) {
+        body.menu &,
+        body.scrolled & {
+            background: [Background Scrolled|var(--dark)];
+            
+            [Border Scrolled]
+            [Testo Scrolled]
+        }
+        
+        body.qr:not(.scrolled) & {
+            background: [Background Qr Open|var(--dark)];
+            
+            [Border Qr Open]
+            [Testo Qr Open]
+        }
+    }
+    
+    &:hover {
+        background: [Background Color Hover|var(--dark)];
+        
+        [Border Hover]
+        [Testo Hover]
+        
+        body.menu &,
+        body.scrolled &,
+        body.qr:not(.scrolled) & {
+            background: [Background Color Hover|var(--dark)];
+            [Border Hover]
+            [Testo Hover]
+        }
+    }
+}
+
+.base-booking-button {
+    span {
+        &.on {
+            display: inline;
+            
+            body.qr & {
+                display: none;
+            }
+        }  
+        
+        &.off {
+            display: none;
+            
+            body.qr & {
+                display: inline;
+            }
+        }
+    }
+}

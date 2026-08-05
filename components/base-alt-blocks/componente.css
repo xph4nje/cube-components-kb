@@ -1,0 +1,272 @@
+.base-block-list {
+    &__element {
+        position: relative;
+        padding: [Spaziatura Righe|0px];
+        background: [Colore Sfondo Elemento Foto Testo|transparent];
+        
+        & > .boxed {
+            max-width: [Larghezza|var(--size-l)];
+            
+            
+            &--mobileno {
+                §MOBILE§ {
+                    width: 100%;
+                    padding-left: 0rem;
+                    padding-right: 0rem;
+                }
+            }
+        }
+
+        §MOBILE§ {
+            background: [Colore Sfondo Elemento Foto Testo Mobile|transparent];
+        }
+
+        &__inner {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: [Padding Interno Elemento|0px];
+            background: [Colore Sfondo Box Foto Testo|transparent];
+            overflow: hidden;
+            [Bordo elemento]    
+            
+            
+            §MOBILE§ {
+                flex-direction: column;
+                padding: [Padding Interno Elemento Mobile|0px];
+                background: [Colore Sfondo Box Foto Testo Mobile|transparent];
+            }
+        }
+        
+        &__image {
+            width: [Width Foto|60%];
+            
+            §TABLET§ {
+                width: [Width Foto Tablet|50%];    
+            }
+    
+            §MOBILE§ {
+                width: 100%;
+            }
+            
+            .page-thumb {
+                padding-bottom: [Formato Foto|75%];
+                
+                [Bordo Foto]
+                
+                &.tablet {
+                    §TABLET§ {
+                        padding-bottom: [Formato Foto Tablet|75%];    
+                    }
+                }
+                
+                &.mobile {
+                    §MOBILE§ {
+                        padding-bottom: [Formato Foto Mobile|75%];    
+                    }
+                }
+        
+                §MOBILE§ {
+                    width: 100%;
+                }
+                
+                a {
+                    display: inline-block;
+                }
+                
+                img, picture {
+                    object-fit: [Riempimento Foto|cover];
+                }
+                
+                video {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    
+        &__text {
+            width: [Width Testo|40%];
+            text-align: [Centratura Testo Dispari|left];
+            padding: [Padding Testo|var(--spaces-l)];
+            display: flex;
+            align-items: [Centratura Verticale Testo|unset];
+            border-style: solid;
+            border-width: [Dimensione Bordo Testo|0px];
+            border-color: [Colore Bordo Testo|var(--dark)];
+            background-color: [Sfondo Blocco Testo|transparent];
+            
+            
+            
+            ul {
+                list-style-type: disc;
+                
+                li::marker {
+                    color: [List Marker Color|unset];
+                }
+            }
+            
+            §TABLET§ {
+                width: [Width Testo Tablet|50%];    
+            }
+            
+            §MOBILE§ {
+                width: 100%;
+                text-align: [Centratura Testo Mobile|left];
+            }
+            
+            h2 {
+                border-style: solid;
+                border-width: [Bordo Titolo|0px];
+                border-color: [Colore Bordo titolo|transparent];
+                
+            }
+            
+            
+            & > div {
+                width: 100%;
+            }
+            
+            &__ctas {
+                padding: [Link Padding|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                
+                a {
+                    margin: 2px 0px;
+                }
+            }
+            
+            h2.base-block-list__element__text__title,
+            h3.base-block-list__element__text__title {
+                [Formattazione Titolo]
+            }
+            h2.base-block-list__element__text__subtitle,
+            h3.base-block-list__element__text__subtitle {
+                [Formattazione Sottotitolo]
+            }
+            &__content {
+                padding: [Content Padding|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Testo]
+                
+                §MOBILE§ {
+                    ul {
+                        padding-left: 1rem;
+                    }
+                }
+            }
+            
+            &__inner {
+                &__titles {
+                    display: flex;
+                    flex-direction: column;
+                    padding: [Padding Titoli|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                    
+                    &.reverse {
+                        flex-direction: column-reverse;
+                    }
+                    
+                    [Bordo Titoli]
+                }
+            }
+        }
+        
+        &__sep {
+            padding: [Separatore Padding|var(--spaces-0)];
+            font-size: [Separatore Font Size|var(--font-b)];
+            line-height: [Separatore Line Height|var(--lineheights-b)];
+            font-weight: [Separatore Font Weight|var(--font-wregular)];
+            text-align: [Separatore Dispari Text Align|center];
+            color: [Separatore Color|var(--dark)];
+            font-family: [Separatore Font Family|var(--font-titles)];
+            text-transform: [Separatore Text Transform|none];
+            font-style: [Separatore Font Style|none];
+            [Formattazione Separatore]
+        }
+        
+        &.overlap-medium {
+            .base-block-list__element__text {
+                transform: translate(calc(-0.5 * var(--spaces-m)), var(--spaces-m));     
+                §MOBILE§ {
+                    transform: none;
+                }
+            }
+            &.row-reverse {
+                .base-block-list__element__text {
+                    transform: translate(calc(0.5 * var(--spaces-m)), var(--spaces-m));   
+                    §MOBILE§ {
+                        transform: none;
+                    }
+                }
+            }
+        }
+        &.overlap-large {
+            .base-block-list__element__text {
+                transform: translate(calc(-0.5 * var(--spaces-l)), var(--spaces-l));
+                §MOBILE§ {
+                    transform: none;
+                }
+            }
+            &.row-reverse {
+                .base-block-list__element__text {
+                    transform: translate(calc(0.5 * var(--spaces-l)), var(--spaces-l));    
+                    §MOBILE§ {
+                        transform: none;
+                    }
+                }
+            }
+        }
+    
+        &.row-reverse {
+            background: [Colore Sfondo Elemento Testo Foto|transparent];
+            §MOBILE§ {
+                background: [Colore Sfondo Elemento Testo Foto Mobile|transparent];
+            }
+                
+            .base-block-list__element__sep {
+                text-align: [Separatore Pari Text Align|center];
+                [Formattazione Separatore Pari]
+            }
+            
+            .base-block-list__element__inner {
+                flex-direction: row-reverse;
+                background: [Colore Sfondo Box Testo Foto|transparent];
+                    
+                §MOBILE§ {
+                    flex-direction: column;
+                    background: [Colore Sfondo Box Testo Foto Mobile|transparent];
+                }
+            }
+            .base-block-list__element__image {
+            }
+            .base-block-list__element__text {
+                text-align: [Centratura Testo Pari|left];
+                
+                §MOBILE§ {
+                    text-align: [Centratura Testo Mobile|left];
+                }
+            }
+            
+            .base-block-list__element__text__title {
+                [Formattazione Titolo Pari]
+            }
+            
+            .base-block-list__element__text__subtitle {
+                [Formattazione Sottotitolo Pari]
+            }
+            
+            .base-block-list__element__text__content {
+                [Formattazione Testo Pari]
+            }
+        }
+        
+        &.even-image {
+            .base-block-list__element__image {
+                .page-thumb {
+                    padding-bottom: [Formato Foto Pari|75%];
+                }
+            }
+        }
+     
+    }
+}

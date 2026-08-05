@@ -1,0 +1,91 @@
+.component {
+    position: static;
+}
+
+.bannerHover {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    min-width: 300px;
+    max-width: [Larghezza|21.875rem];
+    gap: var(--spaces-xs);
+    z-index: 29;
+    pointer-events: none;
+    
+    &:hover {
+        .bannerHover__cnt {
+            pointer-events: all;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .arrow {
+            transform: rotate(-180deg);
+        }
+    }
+    
+    &.bottom-left {
+        bottom: 1.875rem;
+        left: 1.875rem;
+        
+        §MOBILE§ {
+            left: 50%;
+            bottom: 65px;
+            transform: translateX(-50%);
+        }
+    }
+    
+    &.bottom-right {
+        bottom: 1.875rem;
+        right: 1.875rem;
+        
+        §MOBILE§ {
+            left: 50%;
+            right: unset;
+            bottom: 65px;
+            transform: translateX(-50%);
+        }
+    }
+    
+    &__link {
+        display: flex;
+        flex-direction: column;
+        min-width: 12.5rem;
+        gap: var(--spaces-xs);
+    }
+    
+    &__label {
+        width: 100%;
+        pointer-events: all;
+        background: [Background Titolo|var(--light-primary)];
+        padding: [Padding Titolo|var(--spaces-xs) var(--spaces-s) var(--spaces-xs) var(--spaces-s)];
+        display: flex;
+        gap: var(--spaces-xs);
+        [Allineamento Titolo|justify-content: space-between;]
+        [Formattazione Titolo|color:var(--dark);]
+        [Bordo Titolo]
+        
+        .icon {
+            font-size: var(--font-b);
+            transition: all .5s ease 0s;
+            
+        }
+        
+        .arrow {
+            font-size: var(--font-b);
+            transition: all .5s ease 0s;
+        }
+        
+    }
+    &__cnt {
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: all .5s ease 0s;
+        width: 100%;
+        background: [Background Testo|var(--light-primary)];
+        padding: [Padding Testo|var(--spaces-xs) var(--spaces-s) var(--spaces-xs) var(--spaces-s)];
+        [Formattazione Testo|color:var(--dark);]
+        [Bordo Testo]
+ 
+ }
+}
