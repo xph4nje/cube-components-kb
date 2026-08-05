@@ -1,9 +1,3 @@
----
-layout: default
-title: "Methods"
-description: "Classe utility principale del framework Cube.."
----
-
 # Classe `utili`
 
 ## Aree funzionali
