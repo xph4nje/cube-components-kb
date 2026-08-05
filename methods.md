@@ -1,3 +1,9 @@
+---
+title: Funzioni Cube
+layout: default
+nav_order: 3
+---
+
 # Classe `utili`
 
 ## Aree funzionali
