@@ -1,10 +1,10 @@
 ---
-title: Componenti
+title: Guida operativa
 layout: default
 nav_order: 2
 ---
 
-# Agile
+# Guida operativa
 
 > Guida operativa a BlastPlan, BlastDev, composizioni, stili e componenti.
 
