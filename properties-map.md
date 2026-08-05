@@ -1,3 +1,9 @@
+---
+title: Mappa proprietà
+layout: default
+nav_order: 5
+---
+
 # Mappa delle proprietà (Agile property types)
 
 Documento di riferimento per i **tipi di proprietà** utilizzabili dai componenti e per i
