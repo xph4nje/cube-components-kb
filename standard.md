@@ -1,9 +1,3 @@
----
-title: Standard
-layout: default
-nav_order: 4
----
-
 # Standard di sviluppo componenti CUBE
 
 Documento ricavato dall'analisi dei componenti esistenti nella cartella `components/`
@@ -13,14 +7,16 @@ Documento ricavato dall'analisi dei componenti esistenti nella cartella `compone
 
 ## 1. Struttura di un componente
 
-Ogni componente vive in una propria cartella (kebab-case) e contiene sempre 3 file
+Ogni componente vive in una propria cartella (kebab-case) e contiene sempre i file
 con lo stesso nome fisso:
 
 ```
 nome-componente/
-├── componente.php   # markup + logica
-├── componente.css   # stili (sintassi SCSS-like con nesting, compilati dal CMS)
-└── componente.js    # comportamento JS del componente
+├── componente.php        # markup + logica
+├── componente.css        # stili (sintassi SCSS-like con nesting, compilati dal CMS)
+├── componente.js          # comportamento JS del componente
+├── properties.json        # mappa proprietà usate, default, nodo CSS di riferimento (vedi §5)
+└── variants.json          # solo per i componenti non statici che richiamano varianti via getVariant, con riferimento alle varianti utilizzate (vedi §6)
 ```
 
 Il nome della cartella coincide con la classe CSS radice del componente
@@ -214,6 +210,9 @@ padding-bottom: var(--img-normal);
 [Formattazione Titolo|color:var(--dark);]
 ```
 
+- Il riferimento completo ai tipi di proprietà ammessi e ai token disponibili è in
+  `properties-map.md`.
+
 ---
 
 ## 4. JS (file `componente.js`)
@@ -284,7 +283,163 @@ window.addEventListener('resize', () => { ... });
 
 ---
 
-## 5. Checklist rapida per un nuovo componente
+## 5. JSON (file `properties.json`)
+
+Ogni componente deve essere accompagnato da un file `properties.json` che elenca,
+in modo macchina-leggibile, **tutte le proprietà CMS effettivamente usate** dal
+componente (sia nel `.php` che nel `.css`). Il file è volutamente minimale: serve
+solo a sapere quali proprietà esistono e di che tipo sono, senza duplicare default
+o selettori CSS già leggibili nel codice sorgente.
+
+### 5.1 Struttura del file
+
+```json
+{
+  "component": "abs-graphic-el",
+  "properties": [
+    { "name": "SVG", "type": "free", "option": "" },
+    { "name": "Boxed Size", "type": "sizes" },
+    { "name": "Padding", "type": "spaces" },
+    { "name": "Hide Mobile", "type": "boolean" }
+  ]
+}
+```
+
+### 5.2 Campi obbligatori per ogni proprietà
+
+- **`name`**: label esatta usata in PHP/CSS (es. `"Boxed Size"`), identica a quella
+  passata a `getProp`/`getVariantProp` o al placeholder `[Label|...]`. Una stessa
+  label che compare sia in PHP sia come placeholder CSS va documentata **una sola
+  volta** (non si duplica per `source`, a differenza delle versioni precedenti di
+  questo standard).
+- **`type`**: il tipo dello schema `properties-map.md` (`boolean`, `colors`, `spaces`,
+  `sizes`, `imageformat`, `grp-text`, `children`, `free`, ecc.).
+- **`option`** (**solo quando `type` è `"free"`**): il valore effettivamente usato/
+  osservato per quella proprietà in questo componente (es. il default passato a
+  `getProp`, o il valore letterale nel placeholder CSS), utile perché `free` non ha
+  un set di valori predefinito nello schema. Per tutti gli altri tipi (`boolean`,
+  `colors`, `spaces`, `sizes`, `imageformat`, `grp-*`, `children`, ...) il campo
+  `option` **non va incluso**, dato che i valori ammessi sono già definiti da
+  `properties-map.md`.
+
+### 5.3 Regole di generazione
+
+- Un file `properties.json` per cartella, nome fisso `properties.json` (stesso pattern
+  di `componente.php`/`.css`/`.js`).
+- L'elenco `properties` segue l'ordine di apparizione nel `.php` prima, poi le
+  proprietà aggiuntive presenti solo nel `.css` (placeholder senza una `getProp`
+  corrispondente in PHP, es. valori di stile fissi non condizionati da logica).
+- Va rigenerato/allineato **ogni volta** che si aggiunge, rinomina o rimuove una
+  `getProp`/`getVariantProp`/placeholder CSS, così da restare sempre lo specchio
+  fedele di ciò che il componente espone all'editor CMS.
+- Per i `children` (repeater/menu, §2.4), si documenta una voce con
+  `type: "children"` (senza `option`).
+- **Gli slot di variante (`getVariant`) non vanno documentati in `properties.json`**:
+  vivono esclusivamente in `variants.json` (§6), per evitare duplicazioni tra i due
+  file. Le proprietà lette con `getVariantProp` invece **restano** in `properties.json`
+  (sono le proprietà del componente statico stesso, non uno slot di scelta variante).
+- **Wrapper responsive `§MOBILE§` / `§TABLET§`**: nel CSS i blocchi di stile
+  specifici per breakpoint sono racchiusi in questi placeholder speciali (es.
+  `§MOBILE§ { background: [Sfondo Elemento Mobile|var(--trasparent)]; }`), che il
+  motore di rendering sostituisce con la relativa media query. Le proprietà al loro
+  interno vanno comunque documentate come normali voci in `properties.json`.
+- **Convenzione "Pari"**: molte proprietà hanno una variante gemella con suffisso
+  `Pari` (es. `Sfondo Elemento` / `Sfondo Elemento Pari`, `Width Foto` / `Width Foto
+  Pari`), usata per personalizzare lo stile degli elementi pari di una lista
+  (selettore `:nth-child(2n)`), spesso ereditando il valore dalla proprietà
+  "dispari" corrispondente tramite `@propAsDefault`. Ogni proprietà `Pari` va
+  comunque documentata come voce separata in `properties.json`.
+
+---
+
+## 6. JSON (file `variants.json`)
+
+Molti componenti non statici includono al loro interno uno o più **punti di
+variante**: slot in cui viene richiamato un componente statico (es. `basic-button`
+per la categoria `Buttons`, `basic-slider`/`base-gallery-slider` per slider a
+dissolvenza dentro box fotografici, categoria `Sliders`). Il componente
+**consumer** (quello che contiene lo slot, es. `box-double-photo`,
+`base-alt-blocks`, `box-mappa-offset`) deve documentare questi slot in un file
+`variants.json` nella propria cartella.
+
+I **componenti statici** richiamabili sono riconoscibili perché al loro interno
+leggono le proprie proprietà con `$this->getVariantProp(...)` invece che con
+`getProp`. Questi componenti statici **non** hanno un proprio `variants.json`
+(non sono loro a scegliere una variante, sono la variante stessa).
+
+### 6.1 Come funziona il meccanismo variante
+
+- Il componente consumer espone uno slot di variante letto con
+  `$this->getVariant('Label', 'nome-variante-default')` (es. `$buttonVariant =
+  $this->getVariant('Tipologia pulsanti', 'basic-button')`). Il valore restituito
+  individua **quale componente statico** istanziare in quel punto del markup.
+- Il componente statico richiamato (es. `basic-button/componente.php`) legge le
+  proprie proprietà con `$this->getVariantProp('Campo', default)`, risolte in base
+  alla variante attualmente selezionata dal consumer.
+- Un consumer può avere **più slot di variante** (es. `base-alt-blocks_new` ha sia
+  `"Tipologia pulsanti"` che `"Tipologia pulsanti pari"` che `"Includi Slider"`):
+  ognuno va documentato come voce separata in `variants.json`.
+
+### 6.2 Struttura del file
+
+Il file contiene **solo** il nome dello slot (label passata a `getVariant`) e la
+sua categoria — nessun default, nodo o elenco di varianti effettivamente scelte:
+
+```json
+{
+  "component": "box-double-photo",
+  "variants": [
+    {
+      "name": "Tipologia Pulsanti",
+      "category": "Buttons"
+    },
+    {
+      "name": "Includi Slider",
+      "category": "Sliders"
+    }
+  ]
+}
+```
+
+### 6.3 Campi obbligatori
+
+- **`component`**: nome della cartella del componente consumer (es. `box-double-photo`).
+- **`variants`**: elenco degli slot di variante presenti nel componente, ciascuno con:
+  - `name`: label esatta passata a `getVariant` (primo parametro), es.
+    `"Tipologia Pulsanti"`, `"Includi Slider"`.
+  - `category`: una delle categorie ammesse (elenco chiuso, §6.4) — nessun valore
+    fuori da questa lista è consentito.
+
+### 6.4 Categorie ammesse
+
+Elenco chiuso e definitivo delle categorie utilizzabili nel campo `category`:
+
+`Buttons`, `Cards`, `Menu`, `Gallery`, `Menu Languages`, `QR Overlay`, `Burger`,
+`Sliders`, `Menu Overlay`, `Titles`, `Mosaico Foto`, `Immagini`, `Menu Espanso`,
+`Component Overlay`, `Footer Parts`, `QR Inline`, `Extra Fields`, `Header Parts`,
+`Social`, `Logo`, `Menu Extra`, `Menu Evidenza`, `Menu Strutture`, `QR`,
+`Footer social`, `Footer partner`, `Footer newsletter`, `Footer menu`,
+`Footer logo`, `Footer dati hotel`, `Footer copyright`, `Footer menu extra`,
+`Filtri`, `Website by`, `Pagination`, `Menu Esplosi`, `Vantaggi`, `Logo Main`,
+`Logo Scroll`, `Footer Sister`, `Footer strutture`.
+
+Non introdurre nuove categorie: se uno slot non rientra chiaramente in nessuna di
+queste, va condiviso col team prima di procedere.
+
+### 6.5 Regole di generazione
+
+- Un file `variants.json` per cartella, **solo** nei componenti consumer (quelli
+  che usano `getVariant` al proprio interno), nome fisso `variants.json`.
+- I componenti statici richiamati come variante (quelli con `getVariantProp` al
+  proprio interno) **non** hanno un proprio `variants.json`: le loro proprietà
+  configurabili per variante vanno comunque documentate nel loro `properties.json`
+  con `accessor: "getVariantProp"`.
+- Va rigenerato/allineato ogni volta che si aggiunge, rinomina o rimuove uno slot
+  `getVariant` nel componente consumer.
+
+---
+
+## 7. Checklist rapida per un nuovo componente
 
 - [ ] Cartella kebab-case = classe CSS radice
 - [ ] `componente.php`: tutte le `getProp`/`getVariant`/`getModulo` in cima, label in
@@ -297,3 +452,8 @@ window.addEventListener('resize', () => { ... });
 - [ ] `componente.js`: selettori prefissati con la classe radice, init diretta o su
       evento di libreria (`swiperInitialized`, `simplelightboxInitialized`), funzioni
       condivise su `window` quando richiamate da markup
+- [ ] `properties.json`: presente e allineato a tutte le `getProp`/`getVariant`/
+      placeholder CSS effettivamente usati, con default e nodo CSS corretti (§5)
+- [ ] `variants.json`: presente **solo** se il componente usa `getVariant` (non
+      statico), con nome slot + categoria (dall'elenco chiuso §6.4) per ogni
+      variante richiamata (§6)
