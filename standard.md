@@ -1,3 +1,9 @@
+---
+title: Standard
+layout: default
+nav_order: 4
+---
+
 # Standard di sviluppo componenti CUBE
 
 Documento ricavato dall'analisi dei componenti esistenti nella cartella `components/`
