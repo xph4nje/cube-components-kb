@@ -1,0 +1,92 @@
+.component {
+    position: static;
+}
+
+.banner {
+    position: absolute;
+    z-index: 3;
+    
+    &.hide-mobile {
+        §MOBILE§ {
+            display: none;
+        }
+    }
+    
+    &__photo {
+    
+        picture {
+            width: auto;
+            height: auto;
+            
+            img {
+                width: auto;
+                height: [Altezza Immagine|100px];
+                
+                §MOBILE§ {
+                    height: [Altezza Immagine Mobile|100px];
+                }
+            }
+        }
+    
+    }
+    
+    &.top-center {
+        top: [Top|100px];
+        left: 50%;
+        transform: translateX(-50%);
+        
+        §MOBILE§ {
+            top: [Top Mobile|100px];
+        }
+        
+    }
+    
+    &.top-left {
+        top: [Top|100px];
+        left: [Left|1.875rem];
+        
+        §MOBILE§ {
+            top: [Top Mobile|100px];
+        }
+    }
+    &.top-right {
+        top: [Top|100px];
+        right: [Right|1.875rem];
+        
+        §MOBILE§ {
+            
+            top: [Top Mobile|100px];
+        }
+    }
+    
+    &.bottom-center {
+        bottom: [Bottom|100px];
+        left: 50%;
+        transform: translateX(-50%);
+        
+        §MOBILE§ {
+            bottom: [Bottom Mobile|100px];
+        }
+        
+    }
+    
+    &.bottom-left {
+        bottom: [Bottom|1.875rem];
+        left: [Left|1.875rem];
+        
+        §MOBILE§ {
+            bottom: [Bottom Mobile|100px];
+        }
+    }
+    
+    &.bottom-right {
+        bottom: [Bottom|1.875rem];
+        right: [Right|1.875rem];
+        
+        §MOBILE§ {
+            bottom: [Bottom Mobile|100px];
+        }
+    }
+    
+   
+}

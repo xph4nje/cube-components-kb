@@ -1,0 +1,122 @@
+.component {
+    position: static;
+}
+.absolute-lang {
+    position: absolute;
+    z-index: 100;
+    background: [Background Contenitore|var(--transparent)];
+    padding: [Padding Contenitore|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+   
+    
+    
+    &.bottom-right {
+        right: [Right|20px];
+        left: unset;
+        bottom: [Bottom|20px];
+        
+        @media screen and (max-width: 1024px) {
+            bottom: [Bottom Mobile|40px];
+        }
+        
+        
+    }
+    &.bottom-center {
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: [Bottom|20px];
+        
+        @media screen and (max-width: 1024px) {
+            bottom: [Bottom Mobile|40px];
+        }
+    }
+    &.bottom-left {
+        right: unset;
+        left: [Left|20px];
+        bottom: [Bottom|20px];
+        
+        @media screen and (max-width: 1024px) {
+            bottom: [Bottom Mobile|40px];
+        }
+    }
+    
+    &.desktop-all {
+        @media screen and (min-width: 1024px) {
+            display: block;
+        }
+    }
+    &.desktop-no {
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+    &.desktop-load {
+        transition: all .5s;
+        @media screen and (min-width: 1024px) {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .scrolled & {
+            @media screen and (min-width: 1024px) {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    }
+    &.desktop-scroll {
+        transition: all .5s;
+        @media screen and (min-width: 1024px) {
+            opacity: 0;
+            pointer-event: none;
+            
+        }
+        .scrolled & {
+            @media screen and (min-width: 1024px) {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+    &.mobile-all {
+        @media screen and (max-width: 1024px) {
+            display: block;
+        }
+    }
+    &.mobile-no {
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
+    }
+    &.mobile-load {
+        transition: all .5s;
+        @media screen and (max-width: 1024px) {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .scrolled & {
+            @media screen and (max-width: 1024px) {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    }
+    &.mobile-scroll {
+        transition: all .5s;
+        @media screen and (max-width: 1024px) {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .scrolled & {
+            @media screen and (max-width: 1024px) {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+.language-switcher:hover {
+    .language-switcher__select {
+        bottom: 60px;
+    }
+}

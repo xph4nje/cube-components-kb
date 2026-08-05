@@ -1,0 +1,103 @@
+.basic-footer-mobile {
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    bottom: 0rem;
+    left: 0rem;
+    width: 100%;
+    min-height: 73px;
+    z-index: 999999;
+    padding: [Padding Contenitore|0.75rem 1.5rem];
+    background-color: [Background Contenitore|var(--dark)];
+    box-shadow: 2px 2px 7px -3px;
+    
+    [Border]
+    
+    &__icons {
+        display: flex; 
+    }
+    
+    &__icon {
+        display: block;
+        padding: [Padding Icone|var(--spaces-0) 1rem var(--spaces-0) var(--spaces-0)];
+        
+        i, svg {
+            
+            [Stile Icone]
+        }
+    }
+    
+    &__group {
+        order: 3;
+        
+        &:hover {
+            .basic-footer-mobile__group__cnt {
+                bottom: 100px;
+                opacity: 1;
+            }
+        }
+        
+        &__cnt {
+            width: 90%;
+            position: absolute;
+            opacity: 0;
+            bottom: 90px;
+            transition: all .5s;
+            left: 50%;
+            transform: translateX(-50%);
+            background: [Background Menu Strutture|var(--dark)];
+            padding: [Padding Menu Strutture|var(--spaces-xs) var(--spaces-s) var(--spaces-xs) var(--spaces-s)];
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                li {
+                    margin: 0;
+                    padding: [Padding Voci Menu Strutture|var(--spaces-0) var(--spaces-0) var(--spaces-xs) var(--spaces-0)];
+                    list-style-type: none;
+                    a {
+                        [Formattazione Menu Strutture]
+                    }
+                }
+            }
+        }
+    }
+    
+    &__tel {
+        order: 1;
+    }
+    
+    &__map {
+        order: 2;
+    }
+    
+    &__button {
+        order: 4;
+    }
+    
+    &__button {
+        margin-left: auto;
+    }
+    
+    a[class^="button"] {
+        box-sizing: border-box;
+        min-width: 7.5rem;
+        text-align: center;
+    }
+    
+    &.pos-center {
+        .basic-footer-mobile__map {
+            order: 3;
+            padding: 0;
+        }
+        
+        .basic-footer-mobile__button {
+            order: 2;
+            margin-right: auto;
+        }
+    }
+}

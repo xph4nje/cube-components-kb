@@ -1,0 +1,21 @@
+.button-alternate {
+    display: inline-block;
+    background-color: [Background Color|var(--dark)];
+    padding: [Padding|0.5rem 0.5rem 0.5rem 0.5rem];
+    transition: all .5s;
+    
+    
+    
+    transition: color 0.75s, background-color 0.75s, border-width 0.75s, border-color 0.75s;
+    
+    [Border]
+    [Testo]
+    
+    &.active,
+    &:hover {
+        background-color: [Background Color Hover|var(--dark)];
+        
+        [Border Hover]
+        [Testo Hover]
+    }
+}

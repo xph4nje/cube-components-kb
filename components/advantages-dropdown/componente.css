@@ -1,0 +1,128 @@
+.advantages {
+    position: relative;
+    z-index: 100;
+    
+    &:hover {
+        .advantages__cnt {
+            opacity: 1;
+            pointer-events: all;
+            
+        }
+        .advantages__list {
+            top: 35px;
+        }
+    }
+    
+    &__title {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color .5s;
+    }
+    &__cnt {
+        position: absolute;
+        
+        top: 0;
+        width: 250px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .5s;
+        
+        &.left {
+            left: 0;
+            right: unset;
+            transform: unset;
+        }
+        &.right {
+            right: 0;
+            left: unset;
+            transform: unset;
+        }
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        &.mob-left {
+            §MOBILE§ {
+                left: 0;
+                right: unset;
+                transform: unset;
+            }
+        }
+        &.mob-right {
+            §MOBILE§ {
+                right: 0;
+                left: unset;
+                transform: unset;
+            }
+        }
+        &.mob-center {
+            §MOBILE§ {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+    }
+    &__label {
+        transition: all .5s ease 0s;
+        padding: [Padding Label|0px 0px 0px 0px];
+        [Formattazione Titolo|color:var(--light);font-size:var(--font-b);]
+        
+        §MOBILE§ {
+            display: none;
+        }
+        
+        .scrolled &,
+        .menu &,
+        .qr & {
+            [Formattazione Titolo Scroll|color:var(--dark);]
+        } 
+    }
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform .5s;
+        padding: [Padding Icona|0px 10px 0px 0px];
+        
+        
+        i, svg {
+            transition: all .5s ease 0s;
+            [Stile Icona|color:#fff;font-size:var(--font-b);fill:#fff;height:var(--font-b);]
+            
+            .scrolled &,
+            .menu &,
+            .qr & {
+                [Stile Icona Scroll|color:var(--dark);fill:var(--dark);]  
+            }
+        }
+        
+         
+    }
+    &__list {
+        width: 100%;
+        position: relative;
+        top: 40px;
+        padding: [Padding Tendina|var(--spaces-xs) var(--spaces-xs) var(--spaces-xs) var(--spaces-xs)];
+        box-sizing: border-box;
+        background: [Background Tendina|var(--light-primary)];
+        transition: top .5s;
+        list-style-type: none;
+        [Bordo Tendina]
+    }
+    &__item {
+        padding: [Padding Voce Vantaggio|var(--spaces-0) var(--spaces-0) var(--spaces-xs) var(--spaces-0)];
+        display: flex;
+    }
+    .text {
+        
+        [Formattazione Label]
+    }
+    .icon {
+        padding: [Padding Icona Vantaggio|0px 5px 0px 0px];
+        [Stile Icona Vantaggio]
+    }
+    
+}

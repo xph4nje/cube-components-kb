@@ -1,0 +1,48 @@
+.arrow-button {
+    display: inline-block;
+    padding: [Padding|0.5rem 0.5rem 0.5rem 0.5rem];
+    transition: all .5s;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    border-color: [Colore Bordo|inherit];
+    position: relative;
+    
+    [Testo]
+    
+    .icon {
+        i,svg {
+            .after {
+                margin-left: 0.5rem;    
+            }
+            .before {
+                margin-right: 0.5rem;    
+            }
+        }
+    }
+    
+    .arrow {
+        position: absolute;
+        bottom: 0;
+        right: -2px;
+        line-height: 14px;
+        transform: translateY(50%);
+        
+        i, svg {
+            height: 14px;
+            font-size: 14px;
+            line-height: 14px;
+            fill: [Colore Bordo|inherit];
+            color: [Colore Bordo|inherit];
+        }
+    }
+    
+    
+    &.active,
+    &:hover {
+        padding: [Padding Hover|@propAsDefault("Padding","0.5rem 0.5rem 0.5rem 0.5rem")];
+        
+        [Testo Hover]
+        
+        
+    }
+}

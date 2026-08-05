@@ -1,0 +1,56 @@
+.background-button{
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    margin-bottom: var(--spaces-xs);
+    align-items: center;
+    color: [Pulsante Color|var(--dark-primary)];
+    transition: color 1s, background 1s ;
+    width: fit-content;
+    overflow: hidden;
+    padding-right: 15px;
+    [Pulsante Font]
+    
+    &.forma--tondo{
+        border-radius: 30px;
+        .background-button__cont{
+            border-radius:100%;
+        }
+    }    
+    
+    &::after{
+        content: "";
+        background-color: [Pulsante Background|var(--dark-primary)];
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s ease 0s;
+        z-index: -1;
+    }
+    
+    &:hover{
+        color: [Pulsante Color Hover|var(--light)];
+        [Pulsante Font Hover]
+        &:after{
+            width: 100%;
+        }
+    }
+    
+    &__cont{
+        margin-right: 10px;
+        position: relative;
+        background-color: [Pulsante Background|var(--dark-primary)];
+        color: [Pulsante Color Hover|var(--light)];
+        width: [Pulsante Dimensione Box Icona|30px];
+        height: [Pulsante Dimensione Box Icona|30px];
+        display: flex;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        &__icona{
+            [Pulsante Dimensione Icona]
+        }
+    }
+}
