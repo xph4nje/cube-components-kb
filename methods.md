@@ -1,8 +1,10 @@
-# METHODS.md
+---
+layout: default
+title: "Methods"
+description: "Classe utility principale del framework Cube.."
+---
 
 # Classe `utili`
-
-Classe utility principale del framework Cube.
 
 ## Aree funzionali
 
