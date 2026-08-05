@@ -1,0 +1,135 @@
+.base-text-fotodouble {
+    box-sizing: border-box;
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];
+        box-sizing: border-box;
+
+        §MOBILE§ {
+            padding: 0;
+        }
+    }
+    
+    &__titles {
+        display: flex;
+        flex-direction: column;
+        
+        max-width: calc(100% - [Width Images|65%] * 0.4);
+        padding: [Padding Titolo|var(--spaces-m) 0rem];
+        
+        &.reverse {
+            flex-direction: column-reverse;
+        }
+
+        §MOBILE§ {
+            max-width: 100%;
+        }
+        
+        &__title {
+            [Formattazione Titolo]
+        }
+        
+        &__subtitle {
+            [Formattazione Sottotitolo]
+        }
+    }
+    
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        
+        §TABLET§ {
+            flex-direction: column-reverse;
+        }
+        
+        &__text {
+            width: [Width Text|30%];
+            text-align: [Centratura Testo|left];
+            padding: [Padding Testo|var(--spaces-m) 0rem];
+            
+            §TABLET§ {
+                width: 100%;
+                text-align: [Centratura Testo Mobile|@propAsDefault("Centratura Testo","left")];
+            }
+            
+            &__ctas {
+                padding: [Link Padding|var(--spaces-s) 0px 0px 0px];
+            }
+        }
+        
+        &__images {
+            width: [Width Images|65%];
+            
+            §TABLET§ {
+                position: realtive;
+                width: 100%;
+            }
+            
+            &__main {
+                width: calc(100% * (1 - [Rapporto Foto Secondaria|0.4]));
+                
+                .page-thumb {
+                    padding-bottom: [Formato Foto Principale|75%];
+                    [Bordo Foto Principale]
+                }
+                
+                §MOBILE§ {
+                    width: 100%;   
+                }
+            }
+            
+            &__side {
+                position: absolute;
+                width: calc([Width Images|65%] * [Rapporto Foto Secondaria|0.4] - 1rem);
+                top: 0rem;
+                right: 0rem;
+
+                §MOBILE§ {
+                    display: none;
+                }
+                
+                .page-thumb {
+                    padding-bottom: [Formato Foto Secondaria|75%];
+                    [Bordo Foto Secondaria]
+                    
+                    img, picture {
+                        object-fit: [Riempimento Foto Secondaria|cover];
+                    }
+                }
+            }
+        }
+    }
+    
+    &--inverse {
+        .base-text-fotodouble {
+            &__titles {
+                margin-left: auto;
+                text-align: right;
+            }
+            
+            &__content {
+                flex-direction: row-reverse;
+
+                §TABLET§ {
+                    flex-direction: column-reverse;
+                }
+                
+                &__images {
+                    &__main {
+                        margin-left: auto;
+                    }
+                    
+                    &__side {
+                        left: 0rem;
+                        right: unset; 
+
+                        §MOBILE§ {
+                            
+                            top: unset;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.button-basic {
+    display: inline-block;
+    background-color: [Background Color|var(--dark)];
+    padding: [Padding|0.5rem 0.5rem 0.5rem 0.5rem];
+    border-radius: [Border Radius|0rem];
+    transition: all .5s;
+    cursor: pointer;
+    
+    [Border]
+    [Testo]
+    
+    i,svg {
+        .after {
+            margin-left: 0.5rem;    
+        }
+        .before {
+            margin-right: 0.5rem;    
+        }
+    }
+    
+    &.active,
+    &:hover {
+        background-color: [Background Color Hover|var(--dark)];
+        padding: [Padding Hover|@propAsDefault("Padding","0.5rem 0.5rem 0.5rem 0.5rem")];
+        
+        [Border Hover]
+        [Testo Hover]
+    }
+}

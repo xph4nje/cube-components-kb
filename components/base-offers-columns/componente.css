@@ -1,0 +1,124 @@
+.base-offers-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    [Allineamento|align-items: center;]
+
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];
+        box-sizing: border-box;
+    }
+
+    &__text {
+        width: 45%;
+        padding: [Padding Colonna Testo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        §MOBILE§ {
+            width: 100%;
+            padding-bottom: 2rem;
+        }
+        
+        &__titles {
+            display: flex;
+            flex-direction: column;
+            
+            &.reverse {
+                flex-direction: column-reverse;
+            }
+            
+            &__title {
+                [Formattazione Titolo]
+                
+                §MOBILE§ {
+                    [Formattazione Titolo Mobile]
+                }
+            }
+            
+            &__subtitle {
+                padding: [Padding Sottotitolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Sottotitolo]
+                
+                §MOBILE§ {
+                    [Formattazione Sottotitolo Mobile]
+                }
+            }
+        }
+        
+        &__text {
+            padding: [Padding Testo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+            [Formattazione Testo]
+            
+            §MOBILE§ {
+                [Formattazione Testo Mobile]
+            }
+        }
+    }
+
+    &__slides {
+        width: 45%;
+        padding: [Padding Slider|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+
+        §MOBILE§ {
+            width: 100%;
+        }
+    }
+    
+    .swiper-slide {
+        width: 100%;
+        height: auto;
+        background-color: [Sfondo Slide|transparent];
+        
+        & > div {
+            width: 100%;
+            transition: transform 1s;
+            transform: scale([Scale Factor|1]);
+        }
+        
+        &-active {
+            background-color: [Sfondo Slide Corrente|transparent];
+            transition: background-color 1s;
+            
+            & > div {
+                transform: scale(1);
+            }
+        }
+        
+        §MOBILE§ {
+            width: 100%;
+        }
+    }
+    
+    .swiper-container {
+        width: 100%;   
+    }
+    
+    .swiper-wrapper {
+        display: flex;
+        height: auto;
+        
+        &[data-length="1"] {
+            justify-content: center;
+        }
+    }
+    
+    &__nav {
+        text-align: center;
+        font-size: [Dimensione Frecce|var(--font-b)];
+        color: [Colore Frecce|var(--dark)];
+        
+        i, svg {
+            [Stile Icone]
+        }
+        
+        span {
+            display: inline-block;
+            padding: 0rem 1rem;
+            cursor: pointer;
+            
+            &:last-child {
+                transform: scaleX(-1);
+            }
+        }
+    }
+}

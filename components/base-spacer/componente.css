@@ -1,0 +1,9 @@
+.base-spacer {
+    padding: [Padding|0px];
+    height: [Altezza|auto];
+    background: [Background|transparent];
+    
+    §MOBILE§ {
+        height: [Altezza Mobile|auto];
+    }
+}

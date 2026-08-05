@@ -1,0 +1,107 @@
+.base-icons-block {
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];  
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    &__title {
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Titolo]
+        [Bordo Titolo]
+    }
+    
+    &__inner {
+        display: flex;
+        row-gap: [Spaziatura Righe|2rem];
+        column-gap: [Spaziatura Colonne|2rem];
+        justify-content: [Allineamento Generale|center];
+        flex-wrap: wrap;
+        background: [Background Wrapper|var(--transparent)];
+        padding: [Padding Wrapper|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        §MOBILE§ {
+            gap: 1rem;
+        }
+        
+        & > div {
+            box-sizing: border-box;
+            width: calc([Min Column Width|12.5rem] - 1rem);
+            padding: [Elements Padding|0px];
+            text-align: center;
+            
+            &.icon--inline {
+                width: calc([Min Column Width|12.5rem] - 1rem);
+                padding: [Elements Padding|0px];
+                display: flex;
+                align-items: center;
+                
+                §MOBILE§ {
+                    width: calc([[Min Column Width Mobile|12.5rem] - 1rem);
+                    justify-content: [Allineamento Generale Mobile|flex-start];
+                }
+                
+                
+            }
+            & > span {
+                display: inline-flex;
+                
+                width: fit-content;
+                height: fit-content;
+                position: relative;
+                overflow: visible;
+                padding: [Padding Icona|0 0 0 0];
+                
+                
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    z-index: 0;
+                    width: fit-content;
+                    height: calc(100% - 2px);
+                    background: [Background Icona|var(--transparent)];
+                    aspect-ratio: 1;
+                    [Bordo Icona]
+                }
+            }
+            
+            i, svg {
+                font-size: [Icon Size -- old --|var(--font-m)];
+                position: relative;
+                z-index: 1;
+                [Formattazione Icona]
+                [Stile Icona]
+                
+                §MOBILE§ {
+                    [Formattazione Icona Mobile]
+                    [Stile Icona Mobile]
+                }
+            }
+            
+            §MOBILE§ {
+                width: calc([[Min Column Width Mobile|12.5rem] - 1rem);
+            }
+        }
+    }
+    
+    .icon-cnt {
+        padding: [Text Padding|0px];
+    }
+    &__text {
+        [Formattazione Testo]
+        §MOBILE§ {
+            [Formattazione Testo Mobile]
+        }
+        
+    }
+    &__label {
+        [Formattazione dicitura]
+        §MOBILE§ {
+            [Formattazione dicitura Mobile]
+        }
+        
+    }
+}

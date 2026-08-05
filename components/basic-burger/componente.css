@@ -1,0 +1,92 @@
+.basic-burger {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    
+    .cnt {
+        width: [Larghezza Linee|1.75rem];
+        height: 1.25rem;
+        position: relative;
+        
+        §MOBILE§ {
+            width: 1.75rem;
+        }
+    }
+
+    &__inner,
+    &__top,
+    &__bottom {
+        content: '';
+        position: absolute;
+        top: 0rem;
+        left: 50%;
+        width: 100%;
+        height: [Altezza Linee|1px];
+        background-color: [Colore|var(--light)];
+        transform: translate(-50%,-100%);
+        transform-origin: center center;
+        transition: transform 0.25s, top 0.25s linear 0.25s;
+        
+        §MOBILE§ {
+            height: 1px;
+        }
+        
+        body.menu &,
+        body.scrolled &,
+        body.qr & {
+            background-color: [Colore Scrolled|var(--dark)];
+        }
+    }
+
+    &__bottom {
+        top: 100%;
+    }
+
+    &__top {
+        top: 0.1rem;
+    }
+
+    &__inner {
+        top: 50%;
+        transition: opacity 0.25s, width 0.25s; 
+        
+        body.menu & {
+            opacity: 0;
+            width: 60%;
+            transition: opacity 0.25s, width 0.25s;  
+        }
+    }
+
+    body.menu & {
+        &__top,
+        &__bottom {
+            top: 50%;
+            width: 60%;
+            transition: top 0.25s, width 0.25s, transform 0.5s linear 0.25s; 
+        }
+
+        &__top {
+            transform: translate(-50%,-100%) rotate(-45deg);
+        }
+        &__bottom {
+            transform: translate(-50%,-100%) rotate(45deg);
+        }
+    }
+    
+    &__label {
+        margin-left: 10px;
+        font-size: var(--font-b);
+        color: [Colore|var(--light)];
+        [Formattazione Label|font-size:var(--font-b);color:var(--light);]
+        
+        body.menu &,
+        body.scrolled &,
+        body.qr & {
+            [Formattazione Label Scroll|color:var(--dark);]
+        }
+    }
+}

@@ -1,0 +1,78 @@
+.basic-slider {
+    position: relative;
+    &__images {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: [Formato Foto|75%];
+        
+        .swiper-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-wrapper {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            margin-inline: 0;
+            padding-inline: 0;
+            width: 100%;   
+        }
+        
+        .swiper-slide {
+            width: 100%;   
+            
+            .Composer & {
+                display: none;
+                
+                &:first-child {
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    .page-thumb {
+        padding-bottom: [Formato Foto|75%];
+    }
+    
+    &__nav {
+        &--bottom-left {
+            display: block;
+            text-align: left;
+            
+            §MOBILE§ {
+                text-align: center;
+            }
+        }
+        &--bottom-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &--overlay-center {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            display: inline-block;
+            padding: 0rem 1rem;
+            cursor: pointer;
+            
+            &:last-child {
+                transform: scaleX(-1);
+            }
+            
+            [Testo Frecce]
+        }
+    }
+}

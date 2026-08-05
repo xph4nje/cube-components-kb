@@ -1,0 +1,112 @@
+.basic-pressroom{
+     width: 100%;
+
+     .is-hidden {
+        display: none;
+     }
+
+     h2 {
+        padding: [Padding titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione titolo]
+     }
+
+    .visibility-hidden {
+        overflow: hidden;
+        width: 1px;
+        left: 1px;
+        z-index: -1;
+        position: absolute;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    &__wrapper {
+        margin: 0 auto;
+        max-width: [Boxed size|var(--size-l)];
+    }
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        grid-gap: [Spaziatura righe filtri|var(--spaces-s)] [Spaziatura colonne filtri|var(--spaces-xs)];
+        padding: [Padding contenitore filtri|var(--spaces-0) var(--spaces-0) var(--spaces-l) var(--spaces-0)];
+    }
+    
+    
+    &__list {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        direction: ltr;
+        grid-gap: [Spaziatura righe desktop|var(--spaces-m)] [Spaziatura colonne desktop|var(--spaces-s)];
+        grid-template-columns: repeat([Numero colonne desktop|4], 1fr );
+        grid-auto-flow: row dense;
+        list-style: none;
+
+        
+        §TABLET§ {
+          grid-template-columns: repeat([Numero colonne tablet|2], 1fr );
+          grid-gap: [Spaziatura righe tablet|var(--spaces-s)] [Spaziatura colonne tablet|var(--spaces-xs)];
+        }
+        §MOBILE§ {
+          grid-template-columns: repeat([Numero colonne mobile|1], 1fr );
+          grid-gap: [Spaziatura righe mobile|var(--spaces-s)] [Spaziatura colonne mobile|var(--spaces-xs)];
+        }
+
+
+        &__el{
+            padding: [Padding card|var(--spaces-0)];
+            background: [Sfondo card|var(--transparent)];
+            [Border card]
+
+            picture{
+                width: 100%;          
+            }
+
+            &--hide{
+                display: none;
+            }
+
+        
+            &__titolo{
+                text-align: center;
+                padding: [Padding titolo|var(--spaces-xs) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione titolo card]
+    
+            }    
+            &__descrizione{
+                text-align: center;
+                padding: [Padding descrizione|var(--spaces-xs) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione testo card]
+            }  
+            
+            &__link {
+               margin: 0 auto;
+               display: block;
+               width: fit-content;
+                padding: [Padding link|var(--spaces-xs) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                
+            }
+        
+
+            &__img {
+                aspect-ratio: [Formato immagine|var(--ar-vert)];
+                [Border picture]
+                picture, img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    
+                }
+                
+          
+            }
+                 
+        }
+
+    }
+    
+    
+}

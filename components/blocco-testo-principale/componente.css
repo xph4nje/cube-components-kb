@@ -1,0 +1,71 @@
+.main-text {
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: [Allineamento Generale|var(--textalign-left)];
+    padding: [Padding Contenitore|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    display: grid;
+    grid-template-columns: repeat([Layout a Colonne|1], 1fr);
+    
+    &.dx {
+        & > div {
+            grid-column: 2;
+        }
+    }
+    
+    
+    & > .boxed {  
+        max-width: [Larghezza|var(--size-m)];
+        [Bordo Contenitore]
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        
+        &.column-reverse {
+            flex-direction: column-reverse;
+        }
+    }
+    h1 {
+        text-align: [Allineamento Generale Titolo|inherit];
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Titolo];
+    }
+    
+    h2 {
+        text-align: [Allineamento Generale Titolo|inherit];
+        padding: [Padding Sottotitolo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Sottotitolo];    
+    }
+    
+    &__text {
+        padding: [Padding Testo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        column-count: [Colonne|1];
+        column-gap: var(--spaces-l);
+        max-width: [Larghezza Contenuto|@propAsDefault("Larghezza", "var(--size-m)")];
+        margin: [Allineamento Contenuto|unset];
+        [Formattazione Testo];
+        ul, ol {
+            list-style-position: inside;
+        }    
+        
+        a {
+            color: [Colore Link|inherit];
+        }
+    }
+    
+    &__ctas {
+        text-align: [Allineamento Bottoni|var(--textalign-center)];
+        padding: [Padding Bottoni|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        max-width: [Larghezza Contenuto|@propAsDefault("Larghezza", "var(--size-m)")];
+        margin: [Allineamento Contenuto|unset];
+        
+        a {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+    }
+} 

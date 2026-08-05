@@ -1,0 +1,78 @@
+.base-icons-description {
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];  
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .visibility-hidden {
+        overflow: hidden;
+        width: 1px;
+        left: 1px;
+        z-index: -1;
+        position: absolute;
+       
+    }
+    
+    &__title {
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Titolo]
+        [Bordo Titolo]
+    }
+    
+    &__inner {
+        display: flex;
+        row-gap: [Spaziatura Righe|2rem];
+        column-gap: [Spaziatura Colonne|2rem];
+        justify-content: [Allineamento Generale|center];
+        flex-wrap: wrap;
+        background: [Background Wrapper|var(--transparent)];
+        padding: [Padding Wrapper|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        §MOBILE§ {
+            gap: 1rem;
+        }
+        
+        & > div {
+            box-sizing: border-box;
+            width: calc([Min Column Width|12.5rem] - 1rem);
+            padding: [Elements Padding|0px];
+            display: flex;
+            [Allineamento elementi]
+            
+      
+            
+            i, svg {
+                [Stile Icona]
+                
+                §MOBILE§ {
+                    [Stile Icona Mobile]
+                }
+            }
+            
+            §MOBILE§ {
+                width: calc([[Min Column Width Mobile|12.5rem] - 1rem);
+            }
+        }
+    }
+
+    &__icon {
+        background: [Background Icona|var(--transparent)];
+        padding: [Padding Icona|10px 10px 10px 10px];
+        [Bordo Icona]
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        aspect-ratio: 1;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+
+    }
+    &__text {
+        [Formattazione Descrizione]
+        padding: [Padding Descrizione|0px 0px 0px 0px];
+        
+    }
+   
+}

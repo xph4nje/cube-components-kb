@@ -1,0 +1,104 @@
+.base-offers-list {
+    box-sizing: border-box;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];
+    }
+    
+    &__element {
+        padding: [Spaziatura Righe|0px];
+        background: [Sfondo Righe Dispari|transparent];
+        display: flex;
+        flex-direction: [Allineamento Foto Testo Dispari|row];
+        
+        §MOBILE§ {
+            flex-direction: column;
+        }
+        
+        &__image {
+            width: [Width Foto Desktop|60%];
+    
+            §MOBILE§ {
+                width: 100%;
+            }
+            
+            .page-thumb {
+                padding-bottom: [Formato Foto|75%];
+            }
+        }
+    
+        &__text {
+            width: [Width Testo Desktop|40%];
+            padding: [Padding Testo|2rem 4rem];
+            display: flex;
+            align-items: [Centratura Verticale Testo|unset];
+            border-style: solid;
+            border-width: [Dimensione Bordo Testo|0px];
+            border-color: [Colore Bordo Testo|var(--dark)];
+            background-color: [Sfondo Blocco Testo|transparent];
+            
+            &__title {
+                [Text Title|text-decoration: none;]
+                
+                §MOBILE§ {
+                    [Text Title Mobile]
+                }
+            }
+            
+            &__description {
+                [Text Description|text-decoration: none;]
+                
+                §MOBILE§ {
+                    [Text Description Mobile]
+                }
+            }
+            
+            §MOBILE§ {
+                width: 100%;
+                padding-left: 0rem;
+                padding-right: 0rem;
+            }
+        }
+    
+        &:nth-child(even) {
+            flex-direction: [Allineamento Foto Testo Pari|row];
+            background: [Sfondo Righe Pari|transparent];
+            
+            §MOBILE§ {
+                flex-direction: column;
+            }
+            
+            .base-offers-list__element__text { 
+                &__title {
+                    [Text Title Alternato|text-decoration: none;]
+                    
+                    §MOBILE§ {
+                        [Text Title Mobile]
+                    }
+                }
+                
+                &__description {
+                    [Text Description Alternato|text-decoration: none;]
+                    
+                    §MOBILE§ {
+                        [Text Description Mobile]
+                    }
+                }
+            }
+        }
+     
+    }
+}
+
+.visibility-hidden{
+    overflow: hidden;
+    width: 1px!important;
+    height: 1px;
+    left: 1px;
+    z-index: -1;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;    
+}

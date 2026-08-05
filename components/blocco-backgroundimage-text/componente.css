@@ -1,0 +1,174 @@
+.page-bg-image-text {
+    position: relative;
+    width: 100%;
+    padding-bottom: [Altezza Parallax|50%];
+    overflow: hidden;
+    
+    &.auto {
+        padding-bottom: 0;
+        height: fit-content;
+        
+        §MOBILE§ {
+            padding-bottom: 0;
+        }
+        
+        .page-bg-image-text__text {
+            top: unset;
+            bottom: unset;
+            transform: translateX(-50%);
+            position: relative;
+        }
+    
+    }
+    
+    §MOBILE§ {
+        padding-bottom: [Altezza Parallax Mobile|50%];
+    }
+    
+    &.cutout {
+        .page-bg-image-text__text {
+            background: [Layover Color|#00000080];
+            mix-blend-mode: multiply;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            &.valign-center {
+                justify-content: center;
+            }
+            &.valign-top {
+                justify-content: flex-start;
+            }
+            &.valign-bottom {
+                justify-content: flex-end;
+            }
+        }
+        .page-bg-image-text__layover {
+            background: transparent;
+        }
+    }
+    
+    &__parallax {
+       position: absolute;
+       top: 0rem;
+       left: 0rem;
+       width: 100%;
+       height: 100%;
+       
+       img, picture {
+           position: absolute;
+           top: 0rem;
+           left: 0rem;
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+       }
+    }
+
+    &[data-parallax=light],
+    &[data-parallax=medium],
+    &[data-parallax=strong] {
+        .page-bg-image-text__parallax {
+            top: 0rem;
+            transform: translateY(0%);
+        }
+    }
+    
+    &[data-parallax=yes],
+    &[data-parallax=light] {
+        .page-bg-image-text__parallax {
+            height: 110%;
+        }
+    }
+    
+    &[data-parallax=medium] {
+        .page-bg-image-text__parallax {
+            height: 130%;
+        }
+    }
+    
+    &[data-parallax=strong] {
+        .page-bg-image-text__parallax {
+            height: 150%;   
+        }
+    }
+    
+    &__cover {
+        position: absolute;
+        z-index: 2;
+        top: 0rem;
+        left: 0rem;
+        width: 100%;
+        height: 100%;
+        background: [Layover Color|#000000];
+        opacity: [Layover Opacity|0.25];
+    }
+    
+    &__text {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 75%;
+        max-width: [Larghezza Massima Testo|100%];
+        text-align: [Text Align -- old --|center];
+        transform: translate(-50%, -50%);
+        padding: [Padding Contenuto|var(--spaces-0)];
+        
+        &.valign-center {
+            top: 50%;
+            bottom: unset;
+            transform: translate(-50%, -50%);
+        }
+        
+        &.valign-bottom {
+            top: unset;
+            bottom: 0rem;
+            transform: translate(-50%, 0%);
+        }
+        
+        &.valign-top {
+            top: 0rem;
+            bottom: unset;
+            transform: translate(-50%, 0%);
+        }
+        
+        &__titles {
+            display: flex;
+            flex-direction: column;
+            
+            &.reverse {
+                flex-direction: column-reverse;
+            }
+            
+            h2 {
+                padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Titolo]
+            }
+            
+            h3 {
+                padding: [Padding Sottotitolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Sottotitolo]
+            }
+        }
+        
+        &__desc {
+            padding: [Padding Testo|var(--spaces-s) 0 0];
+            [Formattazione Testo]
+        }
+        
+        &__ctas {
+            padding: [Padding Bottoni|var(--spaces-s) 0 0];
+        }
+        
+        §TABLET§ {
+            width: 85%;
+        }
+        
+        §MOBILE§ {
+            width: 95%;
+        }
+    }
+}
