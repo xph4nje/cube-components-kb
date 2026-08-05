@@ -1,0 +1,171 @@
+.box-fullscreen-hover{
+    position: relative;
+    width: 100%;
+    padding-bottom:[Formato Elemento|var(--img-whide)];
+    @media screen and (max-width: 1024px) {
+        padding-bottom: 0;
+    }    
+    
+    .cont-absolute{
+        width: 100%;
+        height:100%;
+        top: 0;
+        left:0;
+        position:absolute;
+        display: flex;
+        align-items: flex-end;    
+        @media screen and (max-width: 1024px) {
+            aspect-ratio: unset;
+            align-items: unset;
+            flex-direction: column;
+            position: relative;
+            height:auto;
+        }        
+    }
+
+    &__element{
+        width: 100%;
+        height:50%;
+        
+        &.lines {
+            height: 100%;
+            border-right: 1px solid [Colore Linee|var(--light)];
+            
+            &:last-of-type {
+                border: none;
+            }
+        }
+        
+        @media screen and (max-width: 1024px) {
+            padding-bottom: var(--img-normal);
+            position: relative;
+        }
+        @media screen and (max-width: 750px) {
+            padding-bottom: var(--img-xvert);
+        }
+
+        &:hover{
+            .box-fullscreen-hover__element__text{
+                opacity: 1;
+            }
+            .box-fullscreen-hover__element__immagine{
+                opacity: 1;
+            }
+            .box-fullscreen-hover__element__text__links {
+                max-height: 100px;
+            }
+            .box-fullscreen-hover__element__logo {
+                opacity: 1;
+            }
+        }
+
+        &:first-child{
+            .box-fullscreen-hover__element__immagine{
+                opacity: 1;
+            }
+            
+        }
+        
+        &__logo {
+            width: 100%;
+            display: flex;
+            padding: [Padding Logo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+            justify-content: [Allineamento Logo|center];
+            opacity: 0;
+            transition: opacity .5s;
+            picture {
+                width: fit-content;
+                height: fit-content;
+                img {
+                    width: [Altezza Logo|100px];
+                    height: [Altezza Logo|100px];
+                    object-fit: contain;
+                }
+            }
+            
+            
+        }
+
+        &__text{
+            opacity: 0.5;
+            transition: all 1s ease 0s;
+            padding: [Padding Elemento|0 var(--spaces-m) var(--spaces-m) var(--spaces-m)];
+            box-sizing: border-box;
+            height:100%;
+            position: relative;
+            display:flex;
+            flex-direction:column;
+            [Allineamento Testo|justify-content:flex-end;]
+            
+            @media screen and (max-width: 1024px) {
+                opacity: 1;
+                left: 0;
+                z-index: 30;
+                position:absolute;
+                bottom:0;   
+                width: 100%;
+            }
+            
+            &__titolo{
+                padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Titolo|color:var(--light);]
+            }
+            &__sottotitolo{
+                padding: [Padding Sottotitolo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Sottotitolo|color:var(--light);]
+            }
+            &__descrizione{
+                padding: [Padding Descrizione|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Descrizione|color:var(--light);]
+            }
+            &__links{
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .5s ease 0s;
+                text-align: [Allineamento Links|left]; 
+                @media screen and (max-width: 1024px) {
+                    max-height:unset;
+                }
+                &__wrapper{
+                    padding: [Padding Links|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)]; 
+                }
+            }
+        }
+        &__immagine{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: all 1s ease 0s;
+            @media screen and (max-width: 1024px) {
+                opacity: 1;
+                z-index: 5;
+            }
+
+            &::after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                left: 0;
+                background: [Background Layover|color-mix(in srgb,var(--dark) 67%,transparent)];
+                position: absolute;
+            }     
+            
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            picture{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+    }
+}

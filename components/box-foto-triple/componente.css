@@ -1,0 +1,172 @@
+.box-foto-triple {
+  box-sizing: border-box;
+  .visibility-hidden {
+    overflow: hidden;
+    width: 1px;
+    left: 1px;
+    z-index: -1;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .hide {
+     §MOBILE§ {
+       display: none
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  figure {
+    margin: 0;
+  }
+
+  &__title {
+    padding: [Padding Titolo Generale|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    [Formattazione Titolo Generale]
+  }
+  &__wrap {
+    max-width: [Boxed size|var(--size-l)];
+    margin: 0 auto;
+    padding: [Padding Inner|var(--spaces-0) var(--spaces-s) var(--spaces-0) var(--spaces-s)];
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: [Padding box desktop|var(--spaces-0) var(--spaces-0) var(--spaces-m) var(--spaces-0)];
+
+    &.reverse-odd {
+      flex-direction: row-reverse;
+      .box-immagini-triple__dx {
+        /* padding: 0 40px 0 0; */
+        
+      }
+
+      .box-immagini-triple__dx__images {
+        margin: 0 !important;
+      }
+    }
+    §TABLET§ {
+      flex-direction: column;
+      padding: [Padding box mobile|var(--spaces-0) var(--spaces-0) var(--spaces-l) var(--spaces-0)];
+    }
+
+    &:nth-child(even) {
+      .box-foto-triple__dx__images {
+          [Allineamento immagini piccole pari|align-items: flex-end;justify-content: flex-start;]
+      }
+    }
+    &.reverse-even {
+        flex-direction: row-reverse;
+        §TABLET§ {
+          flex-direction: column;
+        }
+       
+
+        .box-foto-triple__dx__images {
+          margin: 0 !important;
+          
+        }
+    }
+  }
+
+  &__sx {
+    width: [Larghezza sezione immagine grande|40%];
+    padding: [Padding sezione immagine grande desktop|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    §TABLET§ {
+      width: 100%;
+      padding: [Padding sezione immagine grande mobile|var(--spaces-0) var(--spaces-0) var(--spaces-s) var(--spaces-0)];
+    }
+
+    &__img {
+      .image {
+        img {
+          aspect-ratio: [Formato immagine|var(--ar-quad)];
+        }
+      }
+    }
+  }
+  &__dx {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: [Larghezza sezione testo-immagini|60%];
+    padding: [Padding sezione testo-immagini desktop|var(--spaces-0) var(--spaces-m) var(--spaces-0) var(--spaces-m)];
+    §TABLET§ {
+      width: 100%;
+      padding: [Padding sezione testo-immagini mobile|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)] !important;
+    }
+
+    .text-title {
+      padding: [Padding titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+      [Formattazione titoli box]
+    }
+
+    .text-subtitle {
+      padding: [Padding sottotitolo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+      margin: 0;
+      [Formattazione sottotitoli box]
+    }
+
+    .text-description {
+      padding: [Padding descrizione|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    }
+
+    .text-link {
+      padding: [Padding link|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    }
+
+    &__images {
+      display: flex;
+      
+      gap:  [Spazio tra le immagini piccole|5%];
+      width: 100%;
+      margin: 0 auto;
+      margin-right: 0;
+      padding: [Padding contenitore immagini piccole|var(--spaces-m) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+      [Allineamento immagini piccole|align-items: flex-end;justify-content: flex-end;]
+    
+      §MOBILE§ {
+        width: 100%;
+          &.img-reverse { 
+            flex-direction: column!important; 
+            align-items: flex-start!important; 
+            
+            
+          }
+      }
+    }
+
+    &__img-1 {
+      width: [Larghezza prima immagine piccola|35%];
+      padding: [Padding prima immagine piccola|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        §TABLET§ {
+          width: [Larghezza prima immagine piccola mobile|40%];
+            padding: [Padding prima immagine piccola mobile|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        }
+      .image {
+        img {
+          aspect-ratio: [Formato prima immagine small|var(--ar-normal)];
+        }
+      }
+    }
+
+    &__img-2 {
+      width: [Larghezza seconda immagine piccola|50%];
+      padding: [Padding seconda immagine piccola|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        §TABLET§ {
+          width: [Larghezza seconda immagine piccola mobile|50%];
+          padding: [Padding seconda immagine piccola mobile|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        }
+      img {
+        aspect-ratio: [Formato seconda immagine small|var(--ar-normal)];
+      }
+    }
+  }
+}

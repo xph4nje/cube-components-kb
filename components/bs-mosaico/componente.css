@@ -1,0 +1,14 @@
+.bs-mosaico {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat([Layout a Colonne|1], 1fr);
+    &.boxed {
+        max-width: [Larghezza|var(--size-full)];    
+    }
+    &.dx {
+        & > div {
+            grid-column: 2;
+        }
+    }
+    
+}

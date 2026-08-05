@@ -1,0 +1,90 @@
+.box-sticky {
+  box-sizing: border-box;
+  &__wrap {
+    max-width: [Boxed size|var(--size-l)];
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    //grid-gap: [Spaziatura testo griglia|var(--spaces-s)];
+    padding: [Padding contenitore|var(--spaces-0) var(--spaces-m) var(--spaces-0) var(--spaces-m)];
+  
+  }
+
+  &__title {
+     padding: [Padding titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+     [Formattazione titolo]
+  }
+
+  &__subtitle {
+    padding: [Padding sottotitolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    [Formattazione sottotitolo]
+  }
+
+  &__text {
+    padding: [Padding testo|var(--spaces-s) var(--spaces-0) var(--spaces-s) var(--spaces-0)];
+    [Formattazione testo]
+  }
+
+  &__link {
+    padding: [Padding link|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    display: flex;
+    width: 100%;
+    justify-content: [Allineamento link|flex-start];
+  }
+
+  &__sx {
+    position: sticky;
+    top: [Spaziatura top box sticky|3rem];
+    height: fit-content;
+    align-self: [Allineamento Verticale Testo|flex-start];
+    padding: [Padding contenitore testo desktop|var(--spaces-0) var(--spaces-s) var(--spaces-0) var(--spaces-0)];
+    background: [Sfondo contenitore testo|var(--transparent)];
+    width: [Larghezza contenitore testo desktop|40%];
+     §MOBILE§ {
+        position: relative;
+        top: unset;
+        width: 100%; 
+        padding: [Padding contenitore testo mobile|var(--spaces-0) var(--spaces-0) var(--spaces-s) var(--spaces-0)]; 
+    }
+  }
+
+  &__dx {
+    margin: 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat([Numero colonne griglia immagini desktop|2], 1fr);
+    grid-gap: [Spaziatura griglia immagini|var(--spaces-s)];
+    list-style: none;
+    padding: 0;
+    width: [Larghezza contenitore griglia desktop|60%];
+
+    §TABLET§ {
+        grid-template-columns: repeat([Numero colonne griglia immagini tablet|1], 1fr);
+           
+    }
+    §MOBILE§ {
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__img {
+        aspect-ratio: [Formato immagine|var(--ar-normal)];
+        [Bordo Foto]
+        §TABLET§ {
+            aspect-ratio: [Formato immagine tablet|var(--ar-normal)];
+            
+        }
+        §MOBILE§ {
+            aspect-ratio: [Formato immagine mobile|var(--ar-vert)];
+        }
+    }
+
+    picture,
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

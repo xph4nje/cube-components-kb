@@ -1,0 +1,89 @@
+.box-newsletter {
+    box-sizing: border-box;
+    display: flex;
+    
+    &--block {
+        flex-direction: column;
+    }
+    
+    §MOBILE§ {
+        flex-direction: column;
+    }
+    
+    &.boxed {
+        max-width: [Boxed Size|var(--size-l)];    
+    }
+    
+    &__text {
+        width: 100%;
+        padding: [Padding Testo|0px];
+        
+        .box-newsletter--inline & {
+            width: 45%;
+        }
+        
+        &__title {
+            [Testo Titolo]    
+        }
+        
+        &__subtitle {
+            [Testo Sottotitolo]
+            padding: [Padding Sottotitolo|0px];
+        }
+    }
+    
+    &__form {
+        width: 100%;
+        padding: [Padding Form|0px];
+        display: flex;
+        flex-direction: column;
+        align-items: [Allineamento Campi Form|flex-start];
+        
+        [Testo Sottotitolo]
+        
+        §MOBILE§ {
+            padding-top: var(--spaces-m);
+        }
+        
+        .box-newsletter--inline & {
+            width: 45%;
+        }
+        
+        input[type=email] {
+            box-sizing: border-box;
+            width: 100%;
+            [Testo Campo]
+            [Bordo Campo]
+            background: [Sfondo Campo|var(--light)];
+            padding: [Padding Campo|0.5rem 1rem 0.5rem 1rem];
+        }
+        
+        &__button {
+            padding: [Padding Button|0px];
+        }
+    }
+    
+    &--inline {
+        justify-content: space-between;
+        align-items: center;
+        
+        & > div {
+            width: 45%;
+            
+            §MOBILE§ {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.visibility-hidden{
+    overflow: hidden;
+    width: 1px!important;
+    height: 1px;
+    left: 1px;
+    z-index: -1;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;    
+}

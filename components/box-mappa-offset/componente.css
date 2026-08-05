@@ -1,0 +1,106 @@
+.box-mappa-offset {
+    box-sizing: border-box;
+    &_flex {
+        max-width: [Larghezza Box|var(--size-l)];
+        margin: auto;
+        display: flex;
+        z-index: 1;
+        position: relative;
+        flex-wrap: wrap;
+        [Allineamento Box|align-items: center;]
+        &.row {
+            flex-direction: row;
+        }
+        &.row-reverse {
+            flex-direction: row-reverse;
+        }
+    }
+    
+    &_content {
+        width: [Larghezza Contenuto|50%];
+        padding: [Padding Contenuto|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        §MOBILE§ {
+            width: 100%;
+        }
+    }
+    &_title {
+        width: 100%;
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Titolo]
+    }
+    &_subtitle {
+        width: 100%;
+        padding: [Padding Sottotitolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Sottotitolo]
+    }
+    &_text {
+        padding: [Padding Testo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Testo]
+    }
+    &_cta {
+        padding: [Padding Bottoni|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: [Allineamento Bottoni|center]
+    }
+    &_photo {
+        width: [Larghezza Immagine|50%];
+        padding: [Padding Immagine|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        §MOBILE§ {
+            width: 100%;
+        }
+        
+        .page-thumb {
+            padding-bottom: [Formato Immagine|var(--img-normal)];
+            img,
+            picture {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    &_map {
+        max-width: [Larghezza Mappa|var(--size-l)];
+        margin: auto;
+        height: [Altezza Mappa|500px];
+        transform: translateY(calc(-1 * var(--spaces-l)));
+        z-index: 0;
+        position: relative;
+        
+        §MOBILE§ {
+            height: [Altezza Mappa Mobile|250px];
+            transform: unset;
+        }
+    }
+    &_imagemap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+        img {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+   #map {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        iframe {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            width: 100%;
+            height: 100%;
+        }
+    } 
+}
+

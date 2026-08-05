@@ -1,0 +1,43 @@
+.block-image-base {
+    box-sizing: border-box;
+    &.boxed {
+        max-width: [Larghezza|var(--size-l)];
+        overflow: hidden;
+        
+        §MOBILE§ {
+            max-width: [Larghezza Mobile|@propAsDefault("Larghezza","var(--size-l)")];
+        }
+    }
+    &__inner {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        padding: [Padding Inner|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        
+        &::after {
+            content: "";
+            position: absolute;
+            background: [Background Inner|var(--transparent)];
+            width: [Larghezza Inner|100%];
+            height: [Altezza Inner|100%];
+            [Bordo Inner]
+            
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    }
+    .page-thumb {
+        padding-bottom: [Proporzioni|var(--img-normal)];
+        z-index: 1;
+        [Bordo Immagine]
+        
+        §MOBILE§ {
+            padding-bottom: [Proporzioni Mobile|@propAsDefault("Proporzioni","var(--img-normal)")];
+        }
+        
+        img, picture, video {
+            object-fit: [Image Fit|cover];
+        }
+    }
+}

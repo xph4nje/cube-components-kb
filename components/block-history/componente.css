@@ -1,0 +1,149 @@
+.block-history {
+    box-sizing: border-box;
+    &.boxed {
+        max-width: [Larghezza|var(--size-l)];
+    }
+    &__heading {
+        display: flex;
+        width: 100%;
+        [Allineamento Titolo|align-items: center;]
+    }
+    &__title {
+        [Testo Titoli]
+    }
+    &__subtitle{
+        margin:0;
+        font-weight: 500;
+        [Testo Titoli]
+    }
+    &__cnt {
+        display: flex;
+        flex-direction: column;
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-xs)];
+        &.row {
+            flex-direction: row;
+            align-items: center;
+            
+            i, svg {
+                padding-left: 1rem;
+            }
+        }
+    }
+    &__toggler {
+        width: fit-content;
+        transition: transform 0.5s;
+        cursor: pointer;
+        i, svg {
+            [Font Icon]
+        }
+    }
+    &__desc {
+        [Font Descrizione]
+    }
+    &__date {
+        width: 15%;
+        background: [Sfondo Date|var(--light)];
+        padding: [Padding Date|0.5rem 0.5rem 0.5rem 0.5rem];
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        
+        [Font Date];
+        [Border Date];
+        
+        §MOBILE§ {
+            width: max-content;
+            min-width: 30%;
+        }
+        
+        span {
+            text-align: center;
+            §MOBILE§ {
+                width: max-content;
+            }
+        }
+    }
+    &__row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: [Padding Righe|0.75rem 0rem];
+        
+        &.active {
+            align-items: flex-start;
+            .block-history__toggler{
+                transform: rotate(180deg);
+            }
+        }
+
+        
+        
+        &__description {
+            padding: [Padding Conenuto|1rem 1rem 1rem 1rem];
+            width: 100%;
+            margin-left: [Margine Sinistro Contenuto|15%];
+            
+            §MOBILE§ {
+                width: 100%;
+                margin-left: 0;
+                padding: [Padding Contenuto Mobile|0px 0px 0px 0px];
+            }
+            
+            &__content {
+                max-height: 0rem;
+                overflow: hidden;
+                transition: max-height 0.5s;
+                
+                &__nested {
+                    padding: [Padding Righe Innestate|0.5rem 0rem 0.5rem 0rem];
+                    display: flex;
+                    align-items: flex-start;
+                    
+                    &__date {
+                        width: 15%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: [Sfondo Date|var(--light)];
+                        padding: [Padding Date Innestate|0.5rem 0.5rem 0.5rem 0.5rem];
+                        
+                        [Font Date Innestate];
+                        [Border Date Innestate];
+                        
+                        
+                    }
+
+                    &__description {
+                        width: 85%;
+                        padding: [Padding Conenuto|1rem 1rem 1rem 1rem];
+                        
+                        
+                    }
+                }
+            }
+        }
+        
+        &.active {
+            .block-history__row__description__toggler {
+                transform: scaleY(-1);   
+            }
+            
+            .block-history__row__description__content {
+                max-height: 100rem;
+                transition: max-height 2s;
+            }
+        }
+    }
+}
+
+.visibility-hidden{
+    overflow: hidden;
+    width: 1px!important;
+    height: 1px;
+    left: 1px;
+    z-index: -1;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;    
+}

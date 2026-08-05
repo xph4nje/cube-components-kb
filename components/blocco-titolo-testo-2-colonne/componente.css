@@ -1,0 +1,106 @@
+.page-title-text-2 {
+    box-sizing: border-box;
+    display: flex;
+    z-index: 1;
+    position: relative;
+    max-width: [Larghezza|var(--size-full)];
+    /*overflow: hidden;*/
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: [Spaziatura Colonne|50px];
+    
+    §TABLET§ {
+        gap: 0;
+        padding: [Padding Contenitore Mobile|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+    }
+    
+    &.reverse {
+        flex-direction: row-reverse;
+        
+        §TABLET§ {
+            flex-direction: row;
+        }
+    }
+    
+    &__sx {
+        width: calc([Larghezza Colonna Sinistra|50%] - ([Spaziatura Colonne|50px]/2));
+        padding: [Padding Colonna Sinistra|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        background: [Background Colonna Sinistra|var(--transparent)];
+        
+        §TABLET§ {
+            width: 100%;
+        }
+        
+        &__titles {
+            display: flex;
+            flex-direction: column;
+            
+            &.reverse {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+    &__dx {
+        width: calc([Larghezza Colonna Destra|50%] - ([Spaziatura Colonne|50px]/2));
+        padding: [Padding Colonna Destra|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        background: [Background Colonna Destra|var(--transparent)];
+        
+        §TABLET§ {
+            width: 100%;
+            padding: [Padding Elementi Mobile|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        }
+    }
+    h2 {
+        padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Titolo]
+    }
+    h3 {
+        padding: [Padding Sottotitolo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Sottotitolo]
+    }
+    &__buttons {
+        padding: [Padding Bottoni|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        text-align: [Allineamento Bottoni|var(--textalign-left)];
+    }
+    &__miniText {
+        padding: [Padding Testo Breve|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Testo Breve]     
+    }
+    &__text {
+        padding: [Padding Testo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Formattazione Testo]
+        
+        §MOBILE§ {
+            [Formattazione Testo Mobile]
+        }
+    }
+    &__photo {
+        padding: [Padding Foto Principale|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        width: [Larghezza Foto Principale|100%];
+        margin: 0 auto;
+        
+        .page-thumb {
+            padding-bottom: [Formato Foto Principale|var(--img-quad)];
+            [Bordo Foto Principale]
+        }
+    }
+    &__miniPhoto {
+        padding: [Padding Foto Secondaria|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        width: [Larghezza Foto Secondaria|40%];
+        margin: 0 auto;
+        
+        §MOBILE§ {
+            width: [Larghezza Foto Secondaria Mobile|100%];
+        }
+        
+        .page-thumb {
+            padding-bottom: [Formato Foto Secondaria|var(--img-quad)];
+            [Bordo Foto Secondaria]
+            
+            img, picture {
+                object-fit: [Riempimento Foto Secondaria|cover];
+            }
+        }
+        
+    }
+}

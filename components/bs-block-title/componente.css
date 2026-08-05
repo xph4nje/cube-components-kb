@@ -1,0 +1,39 @@
+.bs-block-title {
+    position: relative;
+    box-sizing: border-box;
+    text-align: [Alignment old|center];
+    overflow: visible;
+    
+    h1,
+    h2,
+    h3 {
+        width: 100%;
+        [Formattazione Titolo]
+    }
+       
+    .boxed {
+        max-width: [Larghezza|var(--size-l)];
+        padding: [Padding|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        [Bordo]
+    }
+    
+    .title-hyphen {
+        display: flex;
+        justify-content: [Allineamento linea - titolo orizzontale|flex-start];
+        align-items: [Allineamento linea - titolo verticale|center];
+        gap: [Spazio linea - titolo |10px];
+        
+        h1,
+        h2,
+        h3 {
+            width: auto;
+        }
+    }
+    
+    .hyphen {
+        width: [Larghezza linea|30px];
+        height: [Altezza linea|1px];
+        display: block;
+        background: [Colore linea|var(--dark-primary)];
+    }
+}

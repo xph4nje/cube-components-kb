@@ -1,0 +1,351 @@
+.base-block-list {
+    box-sizing: border-box;
+    &__element {
+        position: relative;
+        padding: [Spaziatura Box|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        background: [Sfondo Elemento|var(--trasparent)];
+        
+        &:last-child {
+            .hr::after {
+                display: none;
+                
+            }
+        }
+        
+        & > .boxed {
+            max-width: [Larghezza|var(--size-l)];
+            &--mobileno {
+                §MOBILE§ {
+                    width: 100%;
+                    padding-left: 0rem;
+                    padding-right: 0rem;
+                }
+            }
+        }
+        §MOBILE§ {
+            background: [Sfondo Elemento Mobile|var(--trasparent)];
+        }
+        &__inner {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            justify-content: space-between;
+            padding: [Padding Box|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+            background: [Sfondo Box|var(--trasparent)];
+            overflow: hidden;
+            [Bordo Box]    
+            
+            
+            §MOBILE§ {
+                flex-direction: column;
+                padding: [Padding Box Mobile|@propAsDefault("Padding Box","var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)")];
+                background: [Sfondo Box Mobile|@propAsDefault("Sfondo Box","var(--transparent)")];
+            }
+            
+            &.hr::after {
+                content: "";
+                width: [Larghezza linea separatrice|100%];
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: [Altezza linea separatrice|0.062rem];
+                background: [Colore linea separatrice|var(--light-primary)];
+                
+            }
+            
+        }
+        &__logo {
+            padding: [Padding Logo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+            
+            img {
+                width: auto;
+                height: [Altezza Logo|6.25rem];
+            }
+        }
+        &__image {
+            width: [Width Foto|60%];
+            display: flex;
+            flex-direction: column;
+            [Allineamento Immagine|justify-content: flex-start;]
+            
+            §TABLET§ {
+                width: [Width Foto Tablet|50%];    
+            }
+            §MOBILE§ {
+                width: 100%;
+            }
+            
+            .page-thumb {
+                padding-bottom: [Formato Foto|var(--img-normal)];
+                [Bordo Immagine]
+                
+                &.tablet {
+                    §TABLET§ {
+                        padding-bottom: [Formato Foto Tablet|@propAsDefault("Formato Foto","var(--img-normal)")];    
+                    }
+                }
+                
+                &.mobile {
+                    §MOBILE§ {
+                        padding-bottom: [Formato Foto Mobile|var(--img-normal)];    
+                    }
+                }
+                §MOBILE§ {
+                    width: 100%;
+                }
+                
+                a {
+                    display: inline-block;
+                }
+                
+                img, picture {
+                    object-fit: [Fit Foto|cover];
+                }
+                
+                video {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        } 
+        &__text {
+            width: [Width Contenuto|40%];
+            padding: [Padding Contenuto|var(--spaces-l) var(--spaces-m) var(--spaces-l) var(--spaces-m)];
+            display: flex;
+            align-items: [Allineamento Contenuto|center];
+            background-color: [Sfondo Contenuto|var(--trasparent)];
+            [Bordo Contenuto]
+            
+            
+            ul {
+                list-style-type: disc;
+                
+                li::marker {
+                    
+                }
+            }
+            
+            §TABLET§ {
+                width: [Width Contenuto Tablet|50%];    
+            }
+            
+            §MOBILE§ {
+                width: 100%;
+            }
+            
+            h2 {
+                
+                
+            }
+            
+            
+            & > div {
+                width: 100%;
+            }
+            
+            &__ctas {
+                padding: [Padding Bottoni|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                text-align: [Allineamento Bottoni|unset];
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+                
+                a {
+                    margin: 0.13rem 0rem;
+                }
+            }
+            
+            
+            
+            &__inner {
+                &__titles {
+                    display: flex;
+                    flex-direction: column;
+                    padding: [Padding Intestazione|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                    
+                    &.reverse {
+                        flex-direction: column-reverse;
+                    }
+                    
+                    [Bordo Intestazione]
+                }
+            }
+            &__title {
+                padding: [Padding Titolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Titolo]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+            &__subtitle {
+                padding: [Padding Sottotitolo|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Sottotitolo]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+            &__content {
+                padding: [Padding Testo|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                [Formattazione Testo]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+                
+                §MOBILE§ {
+                    ul {
+                        padding-left: 1rem;
+                    }
+                }
+            }
+        }
+        
+        &__sep {
+            padding: [Padding Separatore|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+            [Formattazione Separatore]
+        }
+        
+        &.overlap-medium {
+            .base-block-list__element__text {
+                transform: translate(calc(-0.5 * var(--spaces-m)), var(--spaces-m));     
+                §MOBILE§ {
+                    transform: none;
+                }
+            }
+            &.row-reverse {
+                .base-block-list__element__text {
+                    transform: translate(calc(0.5 * var(--spaces-m)), var(--spaces-m));   
+                    §MOBILE§ {
+                        transform: none;
+                    }
+                }
+            }
+        }
+        &.overlap-large {
+            .base-block-list__element__text {
+                transform: translate(calc(-0.5 * var(--spaces-l)), var(--spaces-l));
+                §MOBILE§ {
+                    transform: none;
+                }
+            }
+            &.row-reverse {
+                .base-block-list__element__text {
+                    transform: translate(calc(0.5 * var(--spaces-l)), var(--spaces-l));    
+                    §MOBILE§ {
+                        transform: none;
+                    }
+                }
+            }
+        }
+        &:nth-child(2n) {
+            background: [Sfondo Elemento Pari|@propAsDefault("Sfondo Elemento","var(--transparent)")];
+            §MOBILE§ {
+                background: [Sfondo Elemento Pari Mobile|@propAsDefault("Sfondo Elemento","var(--transparent)")];
+            }
+            
+            .base-block-list__element__inner {
+                padding: [Padding Box Pari|var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+                
+                §MOBILE§ {
+                    padding: [Padding Box Pari Mobile|@propAsDefault("Padding Box Mobile","var(--spaces-0) var(--spaces-0) var(--spaces-0) var(--spaces-0)")];
+                }
+            }
+                
+            .base-block-list__element__sep {
+                [Formattazione Separatore Pari]
+            }
+            
+            .base-block-list__element__inner {
+                flex-direction: row-reverse;
+                background: [Sfondo Box Pari|@propAsDefault("Sfondo Box","var(--transparent)")];
+                    
+                §MOBILE§ {
+                    flex-direction: column;
+                    background: [Sfondo Box Pari Mobile|@propAsDefault("Sfondo Box Pari","var(--transparent)")];
+                }
+            }
+            .base-block-list__element__image {
+                width: [Width Foto Pari|@propAsDefault("Width Foto","60%")];
+                
+                §MOBILE§ {
+                    width: 100%;
+                }
+            }
+            .base-block-list__element__text {
+                width: [Width Contenuto Pari|@propAsDefault("Width Contenuto","40%")];
+                [Bordo Contenuto Pari]
+                
+                §MOBILE§ {
+                    width: 100%;
+                }
+            }
+            
+            .base-block-list__element__text__title {
+                [Formattazione Titolo Pari]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+            
+            .base-block-list__element__text__subtitle {
+                [Formattazione Sottotitolo Pari]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+            
+            .base-block-list__element__text__content {
+                [Formattazione Testo Pari]
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+            .base-block-list__element__text__ctas {
+                text-align: [Allineamento Bottoni Pari|@propAsDefault("Allineamento Bottoni","unset")];
+                
+                §MOBILE§ {
+                    text-align: [Allineamento Mobile|left];
+                }
+            }
+        }
+        &.row-reverse {
+            .base-block-list__element__inner {
+                flex-direction: row-reverse;
+                
+                §MOBILE§ {
+                    flex-direction: column;
+                }
+            }
+        }
+        &.row {
+            .base-block-list__element__inner {
+                flex-direction: row;
+                
+                §MOBILE§ {
+                    flex-direction: column;
+                }
+            }
+        }
+        &.even-image {
+            .base-block-list__element__image {
+                .page-thumb {
+                    padding-bottom: [Formato Foto Pari|@propAsDefault("Formato Foto","var(--img-normal)")];
+                    
+                    §MOBILE§ {
+                        padding-bottom: [Formato Foto Mobile|var(--img-normal)]; 
+                    }
+                }
+            }
+        }
+     
+    }
+}

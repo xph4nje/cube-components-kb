@@ -1,0 +1,14 @@
+.block-base-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: [Allineamento|center];
+    max-width: [Larghezza|var(--size-l)];
+    
+    & > div {
+        padding-right: 2rem;
+        
+    }
+    & > div:last-child {
+        padding: 0;
+    }
+}

@@ -1,0 +1,120 @@
+.meeting {
+    box-sizing: border-box;
+    max-width: [Larghezza|var(--size-xl)];
+    &_list {
+        list-style-type: none;
+        width: 100%;
+    }
+    &_item {
+        width: 100%;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: [Padding elemento|var(--spaces-s) var(--spaces-m)];
+        box-sizing: border-box;
+        background: [Background elemento|var(--light-primary)];
+        gap: [Spaziatura elementi|30px];
+        margin: [Margin elemento|var(--spaces-0) var(--spaces-0) var(--spaces-s) var(--spaces-0)];
+        
+        §MOBILE§ {
+            grid-template-columns: 1fr;
+        }
+    }
+    &_photo {
+        width: 100%;
+        padding-bottom: [Formato foto|var(--img-quad)];
+        height: fit-content;
+        
+        [Bordo foto]
+    }
+    &_content {
+        padding: [Padding contenuto|var(--spaces-s) var(--spaces-s) var(--spaces-s) var(--spaces-s)];
+        box-sizing: border-box;
+        background: [Background contenuto|var(--light)];
+        [Bordo contenuto]
+    }
+    &_title {
+        padding: [Padding titolo|var(--spaces-0) var(--spaces-0) var(--spaces-xs) var(--spaces-0)];
+        box-sizing: border-box;
+        [Formattazione titolo]
+    }
+    &_area {
+        padding: [Padding area|var(--spaces-0) var(--spaces-0) var(--spaces-xs) var(--spaces-0)];
+        box-sizing: border-box;
+        [Formattazione area]
+    }
+    &_text {
+        padding: [Padding descrizione|var(--spaces-s) var(--spaces-0) var(--spaces-0) var(--spaces-0)];
+        box-sizing: border-box;
+        [Formattazione descrizione]
+    }
+    &_detail {
+        padding: [Padding dettaglio|var(--spaces-s) var(--spaces-s) var(--spaces-s) var(--spaces-s)];
+        box-sizing: border-box;
+        background: [Background dettaglio|var(--light-primary)];
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        [Bordo dettaglio]
+    }
+    
+    &_label {
+        padding: [Padding label|var(--spaces-0) var(--spaces-0) var(--spaces-xs) var(--spaces-0)];
+        box-sizing: border-box;
+        [Formattazione label]
+    }
+    &_icons {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        justify-content: [Allineamento icone|left];
+    }
+    &_value {
+        padding: [Padding icona|var(--spaces-0) var(--spaces-xs) var(--spaces-s) var(--spaces-0)];
+        display: flex;
+        
+        box-sizing: border-box;
+        [Allineamento Icona|align-items: center;]
+        
+        &.col-2 {
+            
+            width: 50%;
+        }
+        &.col-3 {
+            width: 33.33%;
+        }
+        &.col-4 {
+            width: 25%;
+        }
+        
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    &_icon {
+        width: [Grandezza icone|1.5rem];
+        height: [Grandezza icone|1.5rem];
+        background-color: [Colore icona|var(--dark-primary)];
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        padding-right: var(--spaces-xs);
+    }
+    &_number {
+        [Formattazione numero]
+    }
+    &_buttons {
+        align-items: [Allineamento bottoni|var(--textalign-center)];
+        display: flex;
+        flex-direction: column;
+        
+        a {
+            margin-bottom: 1rem;
+            width: fit-content; 
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+    
+}
