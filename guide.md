@@ -1,8 +1,3 @@
----
-layout: default
-title: "Guida Generale"
-description: "Documentazione operativa per progettare, comporre e pubblicare siti Agile in Cube."
----
 
 # Agile
 
